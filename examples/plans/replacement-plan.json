@@ -1,0 +1,17 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.10.5",
+  "resource_changes": [
+    {
+      "address": "aws_lambda_function.plan_reviewer",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "plan_reviewer",
+      "change": {
+        "actions": ["delete", "create"],
+        "before": {"runtime": "python3.11", "function_name": "plan-reviewer"},
+        "after": {"runtime": "python3.12", "function_name": "plan-reviewer"}
+      }
+    }
+  ]
+}

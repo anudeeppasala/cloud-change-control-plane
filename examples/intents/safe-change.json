@@ -1,0 +1,12 @@
+{
+  "request_id": "CHG-1042",
+  "summary": "Create one encrypted asset bucket in development",
+  "environment": "dev",
+  "allowed_actions": ["create"],
+  "allowed_resource_types": ["aws_s3_bucket"],
+  "max_resource_changes": 1,
+  "max_deletes": 0,
+  "allow_stateful_deletes": false,
+  "allow_public_ingress": false,
+  "max_monthly_cost_delta_usd": 5.0
+}

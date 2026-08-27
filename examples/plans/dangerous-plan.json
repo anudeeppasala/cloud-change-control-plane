@@ -1,0 +1,47 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.10.5",
+  "resource_changes": [
+    {
+      "address": "aws_security_group_rule.open_ssh",
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "open_ssh",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "type": "ingress",
+          "from_port": 22,
+          "to_port": 22,
+          "protocol": "tcp",
+          "cidr_blocks": ["0.0.0.0/0"]
+        }
+      }
+    },
+    {
+      "address": "aws_iam_role_policy.admin",
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "admin",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}]}"
+        }
+      }
+    },
+    {
+      "address": "aws_db_instance.production",
+      "mode": "managed",
+      "type": "aws_db_instance",
+      "name": "production",
+      "change": {
+        "actions": ["delete"],
+        "before": {"identifier": "production", "engine": "postgres"},
+        "after": null
+      }
+    }
+  ]
+}
