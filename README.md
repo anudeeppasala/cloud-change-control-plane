@@ -1,5 +1,11 @@
 # Cloud Change Control Plane
 
+Pre-apply authorization for Terraform. Compares what a human approved in a change request against what a plan will actually change, then returns a machine-enforceable `ALLOW` / `REQUIRE_APPROVAL` / `BLOCK` for CI.
+
+**In this repo:** Python policy engine, Terraform plan JSON, GitHub Actions-friendly exit codes. No LLM makes the enforcement decision.
+
+**Production placement:** run after `terraform plan` / `terraform show -json` in GitHub Actions (or Azure DevOps). Same control idea as SCPs plus a CAB gate — fail closed on public ingress, wildcard IAM, extra deletes, environment mismatch, or cost overrun.
+
 An intent-aware policy gate for Terraform changes.
 
 The control plane compares:
